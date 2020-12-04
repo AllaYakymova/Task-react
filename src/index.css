@@ -11,21 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.employees__wrap {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: #8af3ff;
-}
-.employees__part {
-  width: 15rem;
-  padding: 5px;
-  border: 1px solid #3b94fb;
-  text-align: left;
-
-}
-
-.birthday-wrap {
-
-}

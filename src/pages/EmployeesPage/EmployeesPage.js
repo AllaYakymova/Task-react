@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import UsersList from "../../components/UsersList/UsersList";
 import getUsersList from "../../store/actions/getUsersList/getUsersList";
 import Loaded from "../../components/Loaded/Loaded";
-
+import EmployeesBirthday from "../../components/EmployeesBirthday/EmployeesBirthday";
 
 
 const EmployeesPage = () => {
@@ -11,14 +11,18 @@ const EmployeesPage = () => {
     const isLoaded = useSelector((store) => store.getUsersList.isLoaded);
     const dispatch = useDispatch();
 
-    useEffect(() => dispatch(getUsersList()), []);
+    useEffect(() => dispatch(getUsersList()), [dispatch]);
 
+    const mainPage = isLoaded ? (<>
+        <UsersList usersList={usersList}/>
+        <EmployeesBirthday usersList={usersList} />
+    </>) : <Loaded />;
 
     return (
-        isLoaded ? <UsersList usersList={usersList}/> : <Loaded />
-        // <UsersList />
+        <>
+            {mainPage}
+        </>
     )
-
 };
 
 export default EmployeesPage;
