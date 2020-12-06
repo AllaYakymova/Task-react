@@ -1,13 +1,19 @@
-import React from 'react';
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Loaded = () => {
+  const isLoaded = useSelector((store) => store.getUsersList.isLoaded)
 
+  return (
+    !isLoaded && (
+      <div className="spinner">
+        <div className="blob top" />
+        <div className="blob bottom" />
+        <div className="blob left" />
+        <div className="blob move-blob" />
+      </div>
+    )
+  )
+}
 
-        return (
-            <div className="spinner-grow" role="status">
-                <span className="sr-only">Loading...</span>
-            </div>
-        )
-};
-
-export default Loaded;
+export default Loaded
